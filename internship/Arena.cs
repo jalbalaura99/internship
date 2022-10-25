@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tema1
 {
-    internal class Arena
+    public class Arena
     {
         public Arena(string numeArena)
         {

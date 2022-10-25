@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tema1
 {
-    internal class ArenaPlinaException : Exception
+    public class ArenaPlinaException : Exception
     {
         public ArenaPlinaException(string Mesaj) : base(Mesaj)
         {

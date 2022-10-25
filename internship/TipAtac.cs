@@ -1,6 +1,6 @@
 ﻿namespace Tema1
 {
-    internal enum TipAtac
+    public enum TipAtac
     {
         Picior = 20,
         Pumn = 10,

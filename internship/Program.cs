@@ -29,8 +29,6 @@ namespace Tema1
                 Console.WriteLine(ex.Message + "\n\n");  
             }
 
-
-
             Console.WriteLine($"Incepe lupta dintre {luptator1.Nume} si {luptator2.Nume}");
 
             Random rand = new Random();
@@ -67,11 +65,11 @@ namespace Tema1
             {
                 case 1:
                     Console.WriteLine($"Luptatorul {luptatorAtac.Nume} ataca cu pumnul");
-                    Loveste(TipAtac.Pumn, luptatorAtac, luptatorApara);
+                    luptatorAtac.Loveste(TipAtac.Pumn, luptatorApara);
                     break;
                 case 2:
                     Console.WriteLine($"Luptatorul {luptatorAtac.Nume} ataca cu piciorul");
-                    Loveste(TipAtac.Picior, luptatorAtac, luptatorApara);
+                    luptatorAtac.Loveste(TipAtac.Picior, luptatorApara);
                     break;
                 case 3:
                     if (luptatorAtac.NivelSpeciala != 2)
@@ -79,27 +77,11 @@ namespace Tema1
                         throw new SpecialaNepregatitaException("Comanda invalida!");
                     }
                     Console.WriteLine($"Luptatorul {luptatorAtac.Nume} ataca cu lovitura speciala");
-                    Loveste(TipAtac.AtacSpecial, luptatorAtac, luptatorApara);
+                    luptatorAtac.Loveste(TipAtac.AtacSpecial, luptatorApara);
                     luptatorAtac.NivelSpeciala = 0;
                     break;
 
             }
-        }
-
-        static void Loveste(TipAtac tipAtac, Luptator luptatorAtaca, Luptator luptatorApara)
-        {
-            Random random = new Random();
-            if (random.Next(2) == 1)
-            {
-                Console.WriteLine($"Lovitura {tipAtac} efectuata de {luptatorAtaca.Nume} a fost efectuata cu success!");
-                luptatorApara.Viata -= (int)tipAtac;
-                luptatorAtaca.NivelSpeciala++;
-            }
-            else
-            {
-                Console.WriteLine($"Luptatorul {luptatorApara.Nume} a reusit sa apere lovitura!");
-            }
-
         }
 
         static void PrintareLovituri(Luptator luptator)
